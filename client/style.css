@@ -136,6 +136,10 @@ textarea {
   border: none;
   outline: none;
 }
+textarea::placeholder {
+  color: #fff;
+  opacity: 0.7;
+}
 
 button {
   outline: 0;
