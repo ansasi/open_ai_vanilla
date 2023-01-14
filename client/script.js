@@ -20,6 +20,11 @@ function loader(element) {
     }, 300);
 }
 
+function textAreaAdjust(element) {
+    element.style.height = "1px";
+    element.style.height = (25+element.scrollHeight)+"px";
+}
+
 function typeText(element, text) {
     let index = 0
 
@@ -86,7 +91,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://open-ai-vanilla.onrender.com', {
+    const response = await fetch('http://open-ai-vanilla.com', {// fetch('https://open-ai-vanilla.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -114,7 +119,11 @@ const handleSubmit = async (e) => {
 
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
+    if (e.key === 'Enter') {
         handleSubmit(e)
     }
 })
+form.addEventListener('input', (e) => {
+    textAreaAdjust(e.target)
+}
+)

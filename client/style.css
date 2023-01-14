@@ -135,7 +135,10 @@ textarea {
   border-radius: 5px;
   border: none;
   outline: none;
+  resize: none;
+  overflow: hidden;
 }
+
 textarea::placeholder {
   color: #fff;
   opacity: 0.7;
